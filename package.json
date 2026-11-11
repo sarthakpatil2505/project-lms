@@ -39,7 +39,6 @@
     "cmdk": "^1.0.0",
     "framer-motion": "^11.5.4",
     "lucide-react": "^0.441.0",
-    "mux": "^8.5.0",
     "next": "14.2.13",
     "qrcode.react": "^4.0.1",
     "react": "^18.3.1",
