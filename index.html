@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AetherLMS — Coursera &times; NPTEL Enterprise Platform</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap');
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    code, pre, .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(51, 65, 85, 0.8); border-radius: 9999px; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+
+  <!-- Top Global Navigation Bar -->
+  <header class="bg-slate-900/90 border-b border-slate-800 sticky top-0 z-50 backdrop-blur-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-blue-600 to-sky-400 flex items-center justify-center text-white shadow-lg shadow-indigo-500/25 font-bold text-xl">
+          &AElig;
+        </div>
+        <div>
+          <span class="text-lg font-extrabold tracking-tight text-white flex items-center gap-1">
+            Aether<span class="text-indigo-400">LMS</span>
+          </span>
+          <span class="text-[10px] font-mono uppercase tracking-wider text-slate-400 block -mt-1">
+            Coursera Usability &times; NPTEL Rigor
+          </span>
+        </div>
+      </div>
+
+      <!-- Quick Switch Views -->
+      <nav class="hidden md:flex items-center gap-1 bg-slate-950/80 p-1 rounded-xl border border-slate-800 text-xs font-semibold">
+        <button onclick="switchView('landing')" id="nav-landing" class="nav-btn px-3 py-1.5 rounded-lg bg-indigo-600 text-white transition-all">
+          Home
+        </button>
+        <button onclick="switchView('catalog')" id="nav-catalog" class="nav-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all">
+          Catalog
+        </button>
+        <button onclick="switchView('learn')" id="nav-learn" class="nav-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all">
+          Video Classroom
+        </button>
+        <button onclick="switchView('quiz')" id="nav-quiz" class="nav-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all">
+          Timed Quiz (NPTEL)
+        </button>
+        <button onclick="switchView('assignment')" id="nav-assignment" class="nav-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all">
+          Assignments &amp; Labs
+        </button>
+        <button onclick="switchView('verify')" id="nav-verify" class="nav-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all">
+          Verify Certificate
+        </button>
+        <button onclick="switchView('dashboard')" id="nav-dashboard" class="nav-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all">
+          Student Dashboard
+        </button>
+        <button onclick="switchView('instructor')" id="nav-instructor" class="nav-btn px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition-all">
+          Instructor Studio
+        </button>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 font-bold flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Standalone Ready
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile View Pills -->
+  <div class="md:hidden bg-slate-900 border-b border-slate-800 px-4 py-2.5 flex items-center gap-2 overflow-x-auto text-xs whitespace-nowrap">
+    <button onclick="switchView('landing')" class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Home</button>
+    <button onclick="switchView('catalog')" class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Catalog</button>
+    <button onclick="switchView('learn')" class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Classroom</button>
+    <button onclick="switchView('quiz')" class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Timed Quiz</button>
+    <button onclick="switchView('assignment')" class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Lab</button>
+    <button onclick="switchView('verify')" class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Certificate</button>
+    <button onclick="switchView('dashboard')" class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Dashboard</button>
+    <button onclick="switchView('instructor')" class="px-2.5 py-1 rounded bg-slate-800 text-slate-300">Instructor</button>
+  </div>
+
+  <!-- Content Container -->
+  <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+
+    <!-- ===================================================================== -->
+    <!-- VIEW 1: LANDING PAGE -->
+    <!-- ===================================================================== -->
+    <section id="view-landing" class="space-y-16">
+      <!-- Hero -->
+      <div class="text-center max-w-4xl mx-auto pt-10 pb-6">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-950/60 border border-indigo-700/50 text-indigo-300 text-xs font-semibold mb-6">
+          <span>Enterprise Academic Operating System</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
+          <span class="text-slate-400">Coursera Usability &times; NPTEL Cadence</span>
+        </div>
+        <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight leading-tight">
+          Master Deep Tech with <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-blue-300 to-sky-400">Rigorous Weekly Mastery</span>
+        </h1>
+        <p class="text-base sm:text-lg text-slate-300 mt-5 max-w-2xl mx-auto leading-relaxed">
+          High-definition HLS streaming video, automated timed quizzes, weekly code submissions with rigid deadlines, Best-of-N grade engine, and cryptographic QR certificates.
+        </p>
+
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <button onclick="switchView('learn')" class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm shadow-xl shadow-indigo-600/30 transition-all hover:scale-105">
+            Launch Video Classroom
+          </button>
+          <button onclick="switchView('quiz')" class="px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold text-sm transition-all">
+            Take NPTEL Timed Quiz
+          </button>
+          <button onclick="switchView('verify')" class="px-6 py-3 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold text-sm transition-all">
+            Verify Certificate
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Metrics -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800">
+          <div class="text-2xl sm:text-3xl font-extrabold text-white font-mono">84.6%</div>
+          <div class="text-xs font-semibold text-slate-300 mt-1">Course Completion Rate</div>
+          <div class="text-[11px] text-slate-500 mt-0.5">via NPTEL weekly deadlines</div>
+        </div>
+        <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800">
+          <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono">142,000+</div>
+          <div class="text-xs font-semibold text-slate-300 mt-1">Verified Credentials</div>
+          <div class="text-[11px] text-slate-500 mt-0.5">Tamper-proof SHA-256 hashes</div>
+        </div>
+        <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800">
+          <div class="text-2xl sm:text-3xl font-extrabold text-sky-400 font-mono">Top 8 of 12</div>
+          <div class="text-xs font-semibold text-slate-300 mt-1">Best-of-N Grade Engine</div>
+          <div class="text-[11px] text-slate-500 mt-0.5">Automated drop-score triggers</div>
+        </div>
+        <div class="p-5 rounded-2xl bg-slate-900/80 border border-slate-800">
+          <div class="text-2xl sm:text-3xl font-extrabold text-amber-400 font-mono">100%</div>
+          <div class="text-xs font-semibold text-slate-300 mt-1">RLS Protected Schema</div>
+          <div class="text-[11px] text-slate-500 mt-0.5">16 PostgreSQL tables</div>
+        </div>
+      </div>
+
+      <!-- Architecture Comparison -->
+      <div class="p-8 rounded-3xl bg-slate-900 border border-slate-800">
+        <div class="text-center max-w-2xl mx-auto mb-8">
+          <h2 class="text-2xl font-bold text-white">Why AetherLMS Outperforms Legacy Platforms</h2>
+          <p class="text-xs text-slate-400 mt-1">A direct synthesis of best-in-class features from Coursera and NPTEL.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
+          <div class="p-5 rounded-xl bg-slate-950 border border-slate-800 space-y-3">
+            <span class="text-xs font-bold text-rose-400 uppercase font-mono">Coursera Alone</span>
+            <ul class="space-y-2 text-slate-400">
+              <li class="flex items-start gap-2"><span>&times;</span> Relaxed deadlines result in only ~12% completion</li>
+              <li class="flex items-start gap-2"><span>&times;</span> Lack of automated Best-of-N score drops</li>
+              <li class="flex items-start gap-2"><span>&times;</span> No scheduled proctored exam slot allocation</li>
+            </ul>
+          </div>
+          <div class="p-5 rounded-xl bg-slate-950 border border-slate-800 space-y-3">
+            <span class="text-xs font-bold text-amber-400 uppercase font-mono">NPTEL Alone</span>
+            <ul class="space-y-2 text-slate-400">
+              <li class="flex items-start gap-2"><span>&times;</span> Clunky legacy video streaming interface</li>
+              <li class="flex items-start gap-2"><span>&times;</span> No real-time synced transcripts or auto-bookmarking</li>
+              <li class="flex items-start gap-2"><span>&times;</span> Limited inline code submissions and slow grading loop</li>
+            </ul>
+          </div>
+          <div class="p-5 rounded-xl bg-indigo-950/40 border border-indigo-700/60 space-y-3">
+            <span class="text-xs font-bold text-indigo-300 uppercase font-mono">&AElig;therLMS Hybrid</span>
+            <ul class="space-y-2 text-indigo-100">
+              <li class="flex items-start gap-2"><span class="text-emerald-400">&check;</span> 0.5x–2x player with live synced search transcripts</li>
+              <li class="flex items-start gap-2"><span class="text-emerald-400">&check;</span> Rigid weekly deadlines &amp; Best-8-of-12 grading</li>
+              <li class="flex items-start gap-2"><span class="text-emerald-400">&check;</span> Dynamic cryptographic QR verification</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- VIEW 2: COURSE CATALOG -->
+    <!-- ===================================================================== -->
+    <section id="view-catalog" class="hidden space-y-8">
+      <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <h2 class="text-2xl font-bold text-white">Accredited Academic Curriculum</h2>
+          <p class="text-xs text-slate-400 mt-1">Graduate computer science and engineering modules with rigid weekly milestones.</p>
+        </div>
+        <input type="text" placeholder="Search tracks (e.g. Raft, PyTorch, C)..." class="bg-slate-950 border border-slate-700 rounded-xl px-4 py-2 text-xs text-white placeholder-slate-500 w-72 focus:outline-none focus:border-indigo-500">
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden flex flex-col justify-between">
+          <div class="p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded bg-slate-800 text-[11px] font-mono font-bold text-indigo-300">Advanced &bull; 12 Wks</span>
+              <span class="text-xs text-amber-400 font-bold">&#9733; 4.9 (1,420)</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">Advanced Distributed Systems &amp; Consensus</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Paxos, Raft consensus protocol, Byzantine fault tolerance, and Go concurrency.</p>
+            <div class="flex items-center gap-3 text-xs text-slate-400 font-mono">
+              <span>Pass: &gt;= 75%</span> &bull; <span>Best 8 of 12</span>
+            </div>
+          </div>
+          <div class="p-4 bg-slate-950 border-t border-slate-800">
+            <button onclick="switchView('learn')" class="w-full py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition-colors">
+              Open Course Classroom
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden flex flex-col justify-between">
+          <div class="p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded bg-slate-800 text-[11px] font-mono font-bold text-indigo-300">Intermediate &bull; 10 Wks</span>
+              <span class="text-xs text-amber-400 font-bold">&#9733; 4.95 (2,850)</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">Full-Stack LLM Engineering &amp; AI Agents</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Multi-agent orchestrations, hybrid vector search, RAG evaluation, and PyTorch tuning.</p>
+            <div class="flex items-center gap-3 text-xs text-slate-400 font-mono">
+              <span>Pass: &gt;= 75%</span> &bull; <span>Best 7 of 10</span>
+            </div>
+          </div>
+          <div class="p-4 bg-slate-950 border-t border-slate-800">
+            <button onclick="switchView('learn')" class="w-full py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition-colors">
+              Open Course Classroom
+            </button>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden flex flex-col justify-between">
+          <div class="p-6 space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded bg-slate-800 text-[11px] font-mono font-bold text-indigo-300">Advanced &bull; 12 Wks</span>
+              <span class="text-xs text-amber-400 font-bold">&#9733; 4.88 (970)</span>
+            </div>
+            <h3 class="text-lg font-bold text-white">Operating Systems: Kernel &amp; Virtual Memory</h3>
+            <p class="text-xs text-slate-400 leading-relaxed">Linux kernel internals, virtual memory paging, interrupt handling, and scheduler algorithms.</p>
+            <div class="flex items-center gap-3 text-xs text-slate-400 font-mono">
+              <span>Pass: &gt;= 80%</span> &bull; <span>Best 8 of 12</span>
+            </div>
+          </div>
+          <div class="p-4 bg-slate-950 border-t border-slate-800">
+            <button onclick="switchView('learn')" class="w-full py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition-colors">
+              Open Course Classroom
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- VIEW 3: COURSERA-STYLE VIDEO CLASSROOM -->
+    <!-- ===================================================================== -->
+    <section id="view-learn" class="hidden space-y-6">
+      <div class="flex items-center justify-between bg-slate-900 p-4 rounded-2xl border border-slate-800">
+        <div>
+          <span class="text-[10px] font-mono uppercase text-indigo-400 font-bold">Week 4 &bull; Consensus &amp; Raft</span>
+          <h2 class="text-base sm:text-lg font-bold text-white">4.2 Raft Log Replication &amp; Safety Proofs</h2>
+        </div>
+        <div class="flex items-center gap-3">
+          <button onclick="toggleLessonComplete()" id="complete-btn" class="px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition-all">
+            &check; Mark Complete
+          </button>
+          <button onclick="switchView('assignment')" class="px-3.5 py-1.5 rounded-lg bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold transition-all">
+            Go to Week 4 Lab &rarr;
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Player Canvas (Left 2 cols) -->
+        <div class="lg:col-span-2 space-y-4">
+          <!-- Video Frame Mockup with controls -->
+          <div class="relative aspect-video bg-slate-950 rounded-2xl border border-slate-800 overflow-hidden flex flex-col justify-between p-5 group shadow-2xl">
+            <!-- Simulated Video Scene -->
+            <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-indigo-950/30 to-slate-900 flex items-center justify-center">
+              <div class="text-center p-6 space-y-3">
+                <div class="w-16 h-16 rounded-full bg-indigo-600 text-white flex items-center justify-center mx-auto shadow-2xl shadow-indigo-600/50 cursor-pointer hover:scale-110 transition-transform" onclick="togglePlayState()">
+                  <span id="play-icon" class="text-2xl ml-1">&#9658;</span>
+                </div>
+                <div class="text-xs text-slate-300 font-mono">MIT CSAIL &bull; Dr. Alistair Vance</div>
+                <div class="text-sm font-bold text-white">State Machine Replication &amp; Leader Election</div>
+              </div>
+            </div>
+
+            <!-- Top info bar -->
+            <div class="relative z-10 flex items-center justify-between text-xs text-slate-300">
+              <span class="px-2 py-0.5 rounded bg-black/60 font-mono">1080p HLS &bull; Active Sync</span>
+              <span class="px-2 py-0.5 rounded bg-black/60 font-mono" id="speed-display">1.0x Speed</span>
+            </div>
+
+            <!-- Bottom scrubber & player buttons -->
+            <div class="relative z-10 space-y-2 bg-black/70 p-3 rounded-xl backdrop-blur-md">
+              <div class="w-full bg-slate-700/80 h-2 rounded-full cursor-pointer relative overflow-hidden" onclick="handleScrub(event)">
+                <div id="video-progress" class="bg-indigo-500 h-full rounded-full transition-all" style="width: 38%;"></div>
+              </div>
+
+              <div class="flex items-center justify-between text-xs text-slate-300">
+                <div class="flex items-center gap-3">
+                  <button onclick="togglePlayState()" id="play-btn-text" class="font-bold text-white hover:text-indigo-400">Play</button>
+                  <span class="font-mono text-slate-400" id="time-display">14:20 / 38:00</span>
+                </div>
+
+                <div class="flex items-center gap-1.5 font-mono text-[11px]">
+                  <span>Speed:</span>
+                  <button onclick="setSpeed(0.75)" class="px-1.5 py-0.5 rounded bg-slate-800 hover:text-white">0.75x</button>
+                  <button onclick="setSpeed(1.0)" class="px-1.5 py-0.5 rounded bg-indigo-600 text-white font-bold">1.0x</button>
+                  <button onclick="setSpeed(1.25)" class="px-1.5 py-0.5 rounded bg-slate-800 hover:text-white">1.25x</button>
+                  <button onclick="setSpeed(1.5)" class="px-1.5 py-0.5 rounded bg-slate-800 hover:text-white">1.5x</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lesson Notes & Discussion Tabs -->
+          <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-4">
+            <h3 class="text-sm font-bold text-white uppercase font-mono tracking-wider">Lesson Architecture Notes</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Raft guarantees safety through election restrictions: a follower will deny a RequestVote RPC if the candidate’s log is less up-to-date than its own log. An entry is up-to-date if it has a higher term, or if terms match, has a higher log index.
+            </p>
+            <div class="p-3 rounded-xl bg-slate-950 font-mono text-xs text-indigo-300 border border-slate-800">
+              <code>rf.isUpToDate(args.LastLogIndex, args.LastLogTerm) == true</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar Syllabus (Right 1 col) -->
+        <div class="space-y-4">
+          <!-- Live Interactive Transcript -->
+          <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-3 h-[280px] flex flex-col">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-white uppercase font-mono">Interactive Transcript</span>
+              <span class="text-[10px] text-indigo-400 font-mono">Click to seek</span>
+            </div>
+            <div class="flex-1 overflow-y-auto space-y-2 text-xs custom-scrollbar pr-1">
+              <div onclick="seekTo(0)" class="p-2 rounded-lg bg-indigo-950/40 border border-indigo-700/50 cursor-pointer">
+                <span class="font-mono text-indigo-400 font-bold text-[10px]">00:00</span> Welcome to Week 4. Today we dive into Raft consensus mechanics.
+              </div>
+              <div onclick="seekTo(320)" class="p-2 rounded-lg bg-slate-950 hover:bg-slate-800 cursor-pointer text-slate-400">
+                <span class="font-mono text-slate-500 font-bold text-[10px]">05:20</span> In Raft, cluster nodes transition between Follower, Candidate, and Leader.
+              </div>
+              <div onclick="seekTo(860)" class="p-2 rounded-lg bg-slate-950 hover:bg-slate-800 cursor-pointer text-slate-400">
+                <span class="font-mono text-slate-500 font-bold text-[10px]">14:20</span> Notice how randomized election timeouts avoid recurring split votes.
+              </div>
+              <div onclick="seekTo(1450)" class="p-2 rounded-lg bg-slate-950 hover:bg-slate-800 cursor-pointer text-slate-400">
+                <span class="font-mono text-slate-500 font-bold text-[10px]">24:10</span> Leader commits entries once replicated across a majority quorum.
+              </div>
+            </div>
+          </div>
+
+          <!-- Weekly Modules List -->
+          <div class="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
+            <span class="text-xs font-bold text-white uppercase font-mono">Weekly Track Modules</span>
+            <div class="space-y-2 text-xs">
+              <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between text-slate-400">
+                <span>Week 1: Physical Clocks &amp; Skew</span>
+                <span class="text-emerald-400 font-bold">&check; Done</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between text-slate-400">
+                <span>Week 2: State Machine Replication</span>
+                <span class="text-emerald-400 font-bold">&check; Done</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-slate-950 border border-slate-800 flex items-center justify-between text-slate-400">
+                <span>Week 3: Classical Multi-Paxos</span>
+                <span class="text-emerald-400 font-bold">&check; Done</span>
+              </div>
+              <div class="p-2.5 rounded-xl bg-indigo-950/60 border border-indigo-700/60 flex items-center justify-between text-indigo-200 font-bold">
+                <span>Week 4: Raft Consensus Invariants</span>
+                <span class="text-indigo-400 font-mono text-[10px]">ACTIVE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- VIEW 4: NPTEL TIMED QUIZ ENGINE -->
+    <!-- ===================================================================== -->
+    <section id="view-quiz" class="hidden space-y-6">
+      <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <span class="text-[10px] font-mono uppercase text-amber-400 font-bold">NPTEL Timed Examination Engine</span>
+          <h2 class="text-lg font-bold text-white">Week 4 Graded Quiz: Raft Safety &amp; Quorum Mechanics</h2>
+        </div>
+        <div class="px-4 py-2 rounded-xl bg-slate-950 border border-amber-600/50 text-amber-300 font-mono font-bold text-sm flex items-center gap-2">
+          <span>Time Left:</span>
+          <span id="quiz-countdown">28:44</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <!-- Question Pane (Left 3 cols) -->
+        <div class="lg:col-span-3 p-6 sm:p-8 rounded-2xl bg-slate-900 border border-slate-800 space-y-6" id="quiz-canvas">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+            <span class="text-xs font-mono font-bold text-indigo-400 bg-indigo-950 px-3 py-1 rounded-md" id="q-number">Question 1 of 4</span>
+            <span class="text-xs text-slate-400 font-mono">Weight: 2.0 Points</span>
+          </div>
+
+          <div class="text-sm sm:text-base font-semibold text-white leading-relaxed" id="q-prompt">
+            In the Raft protocol, what immediately happens when a follower's election timer expires without receiving an AppendEntries heartbeat?
+          </div>
+
+          <div class="space-y-3 text-xs sm:text-sm" id="q-options">
+            <!-- Rendered by JS -->
+          </div>
+
+          <div class="pt-6 border-t border-slate-800 flex items-center justify-between">
+            <button onclick="prevQuestion()" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-xs font-semibold">Previous</button>
+            <button onclick="nextQuestion()" class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold" id="quiz-next-btn">Next Question &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Palette (Right 1 col) -->
+        <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-4">
+          <span class="text-xs font-bold uppercase font-mono text-slate-400">Question Palette</span>
+          <div class="grid grid-cols-4 gap-2 font-mono text-xs font-bold">
+            <button onclick="jumpToQuestion(0)" id="pal-0" class="h-9 rounded-lg bg-indigo-600 text-white">1</button>
+            <button onclick="jumpToQuestion(1)" id="pal-1" class="h-9 rounded-lg bg-slate-800 text-slate-400">2</button>
+            <button onclick="jumpToQuestion(2)" id="pal-2" class="h-9 rounded-lg bg-slate-800 text-slate-400">3</button>
+            <button onclick="jumpToQuestion(3)" id="pal-3" class="h-9 rounded-lg bg-slate-800 text-slate-400">4</button>
+          </div>
+          <button onclick="submitQuiz()" class="w-full mt-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-all">
+            Submit &amp; Evaluate
+          </button>
+        </div>
+      </div>
+
+      <!-- Result Modal (Hidden by default) -->
+      <div id="quiz-result-modal" class="hidden p-8 rounded-2xl bg-slate-900 border border-emerald-600/50 text-center space-y-4">
+        <div class="w-16 h-16 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-600 flex items-center justify-center mx-auto text-3xl">&check;</div>
+        <h3 class="text-2xl font-extrabold text-white">Examination Scored: 100% (Passed)</h3>
+        <p class="text-xs text-slate-400">This score has been submitted to your official record. It automatically counts toward your Best-of-8 grade computation.</p>
+        <button onclick="switchView('dashboard')" class="px-6 py-2.5 rounded-xl bg-indigo-600 text-white font-bold text-xs">View on Student Dashboard</button>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- VIEW 5: RIGID DEADLINE ASSIGNMENT ROOM -->
+    <!-- ===================================================================== -->
+    <section id="view-assignment" class="hidden space-y-6">
+      <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div>
+          <div class="flex items-center gap-2 mb-2">
+            <span class="px-2.5 py-0.5 rounded bg-rose-950 text-rose-300 border border-rose-800 font-mono text-xs font-bold">Hard Cutoff Enforced</span>
+            <span class="text-xs text-slate-400 font-mono">Week 4 Laboratory</span>
+          </div>
+          <h2 class="text-2xl font-bold text-white">Assignment 4: Raft Consensus in Go (Lab 2A)</h2>
+          <p class="text-xs text-slate-400 mt-1">Implement leader election, AppendEntries heartbeat RPC, and term synchronization.</p>
+        </div>
+
+        <div class="p-4 rounded-xl bg-slate-950 border border-amber-600/40 text-center shrink-0">
+          <span class="text-[10px] font-mono text-amber-400 uppercase font-bold">Submission Countdown</span>
+          <div class="text-xl font-mono font-extrabold text-white mt-0.5">01d : 02h : 18m : 40s</div>
+          <span class="text-[11px] text-slate-400">Sunday 23:59 UTC Hard Stop</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Editor / Uploader (Left 2 cols) -->
+        <div class="lg:col-span-2 p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-4">
+          <div class="flex items-center justify-between text-xs border-b border-slate-800 pb-3">
+            <span class="font-mono text-indigo-400 font-bold">raft_consensus.go (Go 1.22)</span>
+            <span class="text-slate-400 font-mono">10/10 Test Suites Ready</span>
+          </div>
+
+          <textarea id="code-box" rows="12" class="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 font-mono text-xs text-emerald-300 focus:outline-none focus:border-indigo-500 leading-relaxed">
+package raft
+
+// Lab 2A: Leader election & Heartbeats in Go
+func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
+    rf.mu.Lock()
+    defer rf.mu.Unlock()
+
+    if args.Term > rf.currentTerm {
+        rf.currentTerm = args.Term
+        rf.state = StateFollower
+        rf.votedFor = -1
+    }
+
+    if (rf.votedFor == -1 || rf.votedFor == args.CandidateId) &&
+       rf.isUpToDate(args.LastLogIndex, args.LastLogTerm) {
+        rf.votedFor = args.CandidateId
+        reply.VoteGranted = true
+        rf.resetElectionTimer()
+    }
+}</textarea>
+
+          <div class="flex items-center justify-between pt-2">
+            <span class="text-[11px] text-slate-500">SHA-256 Hash generated automatically on submit</span>
+            <button onclick="submitAssignment()" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white text-xs font-bold shadow-lg shadow-indigo-600/30 transition-all hover:scale-105">
+              Submit Lab Assignment
+            </button>
+          </div>
+
+          <div id="assignment-receipt" class="hidden p-4 rounded-xl bg-emerald-950/40 border border-emerald-600/60 text-xs font-mono space-y-1">
+            <div class="text-emerald-400 font-bold">&check; Submitted Successfully Before Cutoff</div>
+            <div class="text-slate-300">Integrity Hash: 0x8f20b39e4a11f2a991823bc87201c8</div>
+            <div class="text-slate-400 text-[11px]">Evaluation queued for TA Gradebook.</div>
+          </div>
+        </div>
+
+        <!-- Rubric (Right 1 col) -->
+        <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-3 text-xs">
+          <span class="text-xs font-bold uppercase font-mono text-slate-400">Grading Rubric</span>
+          <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
+            <div class="flex justify-between font-bold text-white mb-1">
+              <span>Leader Election 2A</span>
+              <span class="text-indigo-400 font-mono">40 Pts</span>
+            </div>
+            <p class="text-slate-400 text-[11px]">Passes 10 runs with 3-node and 5-node cluster failure scenarios.</p>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
+            <div class="flex justify-between font-bold text-white mb-1">
+              <span>Heartbeat Stability</span>
+              <span class="text-indigo-400 font-mono">30 Pts</span>
+            </div>
+            <p class="text-slate-400 text-[11px]">Interval strictly &lt;= 100ms with no split-vote timeouts.</p>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-950 border border-slate-800">
+            <div class="flex justify-between font-bold text-white mb-1">
+              <span>Race Detector Check</span>
+              <span class="text-indigo-400 font-mono">30 Pts</span>
+            </div>
+            <p class="text-slate-400 text-[11px]">Zero race warnings using <code>go test -race</code>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- VIEW 6: CERTIFICATE VERIFICATION -->
+    <!-- ===================================================================== -->
+    <section id="view-verify" class="hidden space-y-8">
+      <div class="p-6 rounded-2xl bg-emerald-950/40 border border-emerald-600/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <span class="text-[10px] font-mono text-emerald-400 uppercase font-bold">Public Verification Terminal</span>
+          <h2 class="text-xl font-bold text-white">Cryptographic Certificate Status: VALID &amp; ISSUED</h2>
+          <p class="text-xs text-slate-400 mt-0.5">Verified against Supabase immutable records &bull; Signature Verified</p>
+        </div>
+        <button onclick="alert('PDF certificate download triggered!')" class="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold transition-all shadow-md">
+          Download PDF Certificate
+        </button>
+      </div>
+
+      <!-- Diplomatic Credential Document -->
+      <div class="p-10 sm:p-14 rounded-3xl bg-slate-900 border-2 border-indigo-500/30 text-center space-y-6 relative shadow-2xl">
+        <div class="text-3xl font-extrabold text-white">Aether<span class="text-indigo-400">LMS</span></div>
+        <p class="text-xs font-mono uppercase tracking-widest text-indigo-400 font-bold">ACADEMIC COUNCIL OF ADVANCED SYSTEMS</p>
+        <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Certificate of Completion &amp; Mastery</h3>
+        <p class="text-xs text-slate-400">This is formally conferred upon</p>
+        <div class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-indigo-200">
+          Alex Mercer
+        </div>
+        <p class="text-xs text-slate-400">for successfully passing the 12-week graduate track:</p>
+        <div class="text-xl font-bold text-indigo-300">Advanced Distributed Systems &amp; Consensus</div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-xl mx-auto pt-6 border-t border-slate-800 text-left text-xs font-mono">
+          <div class="p-3 rounded-xl bg-slate-950">
+            <span class="text-slate-500 text-[10px]">FINAL GRADE</span>
+            <div class="text-base font-bold text-emerald-400">91.4%</div>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-950">
+            <span class="text-slate-500 text-[10px]">BEST 8 LABS</span>
+            <div class="text-base font-bold text-white">93.2%</div>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-950">
+            <span class="text-slate-500 text-[10px]">PROCTORED EXAM</span>
+            <div class="text-base font-bold text-sky-400">90.5%</div>
+          </div>
+          <div class="p-3 rounded-xl bg-slate-950">
+            <span class="text-slate-500 text-[10px]">PASS THRESHOLD</span>
+            <div class="text-base font-bold text-slate-300">&gt;= 75.0%</div>
+          </div>
+        </div>
+
+        <div class="pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 font-mono gap-4">
+          <div>Cert ID: CERT-MIT-8841</div>
+          <div class="text-[11px] text-slate-500">Hash: 0xe3b0c44298fc1c149afbf4c8996fb92427ae41e46</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- VIEW 7: STUDENT DASHBOARD -->
+    <!-- ===================================================================== -->
+    <section id="view-dashboard" class="hidden space-y-6">
+      <div class="p-6 rounded-2xl bg-gradient-to-r from-indigo-950/60 to-slate-900 border border-indigo-700/40">
+        <h2 class="text-2xl font-bold text-white">Welcome back, Alex. Keep up your streak!</h2>
+        <p class="text-xs text-slate-300 mt-1">Your current Best-of-8 average is <strong class="text-emerald-400 font-mono">91.4%</strong>. Raft Lab 2A deadline is in 26 hours.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Left: Course Progress -->
+        <div class="lg:col-span-2 space-y-4">
+          <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-bold text-white">Advanced Distributed Systems</h3>
+              <span class="text-xs font-mono font-bold text-indigo-400">68% Done</span>
+            </div>
+            <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+              <div class="bg-indigo-500 h-full w-[68%]"></div>
+            </div>
+            <div class="flex items-center justify-between text-xs text-slate-400 pt-2">
+              <span>Next: Lesson 4.3 Log Compaction</span>
+              <button onclick="switchView('learn')" class="text-indigo-400 font-bold hover:underline">Resume &rarr;</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: NPTEL Best of N breakdown -->
+        <div class="p-5 rounded-2xl bg-slate-900 border border-slate-800 space-y-3 text-xs">
+          <h3 class="text-sm font-bold text-white">Best 8 of 12 Algorithm</h3>
+          <p class="text-slate-400 text-[11px]">Your 4 lowest scoring weeks are dropped automatically.</p>
+          <div class="p-3 rounded-xl bg-slate-950 font-mono space-y-1">
+            <div class="flex justify-between"><span>Top 8 Labs Mean:</span><strong class="text-emerald-400">93.2%</strong></div>
+            <div class="flex justify-between"><span>Proctored Exam:</span><strong class="text-sky-400">90.5%</strong></div>
+            <div class="flex justify-between pt-1 border-t border-slate-800"><span>Composite Score:</span><strong class="text-white">91.4%</strong></div>
+          </div>
+          <span class="text-[11px] font-bold text-emerald-400">&check; On Track for Accredited Honors Certificate</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================== -->
+    <!-- VIEW 8: INSTRUCTOR STUDIO -->
+    <!-- ===================================================================== -->
+    <section id="view-instructor" class="hidden space-y-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h2 class="text-2xl font-bold text-white">Instructor Studio &amp; Gradebook</h2>
+          <p class="text-xs text-slate-400 mt-1">Configure weekly modules, rigid assignment deadlines, and evaluate submissions.</p>
+        </div>
+        <button onclick="alert('Module saved to database!')" class="px-5 py-2.5 rounded-xl bg-indigo-600 text-white text-xs font-bold shadow-md">
+          + Add New Week
+        </button>
+      </div>
+
+      <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-4">
+        <h3 class="text-sm font-bold text-white uppercase font-mono">Week 4 Pending Submissions Queue</h3>
+        <div class="overflow-x-auto text-xs">
+          <table class="w-full text-left">
+            <thead class="bg-slate-950 text-slate-400 font-mono text-[10px] uppercase border-b border-slate-800">
+              <tr>
+                <th class="p-3">Student</th>
+                <th class="p-3">Lab</th>
+                <th class="p-3">CI Tests</th>
+                <th class="p-3">Score</th>
+                <th class="p-3 text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800">
+              <tr>
+                <td class="p-3 font-bold text-white">Alex Mercer</td>
+                <td class="p-3 text-slate-300">Lab 2A Raft in Go</td>
+                <td class="p-3 text-emerald-400 font-mono font-bold">10/10 passed</td>
+                <td class="p-3 font-mono">98 / 100</td>
+                <td class="p-3 text-right">
+                  <button onclick="alert('Evaluation confirmed. Score saved!')" class="px-3 py-1 rounded bg-slate-800 text-indigo-300 font-bold hover:bg-indigo-600 hover:text-white transition-colors">
+                    Edit Grade
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Tab switching logic
+    function switchView(viewName) {
+      const views = ['landing', 'catalog', 'learn', 'quiz', 'assignment', 'verify', 'dashboard', 'instructor'];
+      views.forEach(v => {
+        const el = document.getElementById('view-' + v);
+        if (el) el.classList.add('hidden');
+        const navEl = document.getElementById('nav-' + v);
+        if (navEl) {
+          navEl.classList.remove('bg-indigo-600', 'text-white');
+          navEl.classList.add('text-slate-400');
+        }
+      });
+
+      const target = document.getElementById('view-' + viewName);
+      if (target) target.classList.remove('hidden');
+
+      const targetNav = document.getElementById('nav-' + viewName);
+      if (targetNav) {
+        targetNav.classList.remove('text-slate-400');
+        targetNav.classList.add('bg-indigo-600', 'text-white');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Classroom interactive simulation
+    let isPlaying = false;
+    let currentSpeed = 1.0;
+    let isComplete = false;
+
+    function togglePlayState() {
+      isPlaying = !isPlaying;
+      document.getElementById('play-icon').innerHTML = isPlaying ? '&#10074;&#10074;' : '&#9658;';
+      document.getElementById('play-btn-text').innerText = isPlaying ? 'Pause' : 'Play';
+    }
+
+    function setSpeed(speed) {
+      currentSpeed = speed;
+      document.getElementById('speed-display').innerText = speed + 'x Speed';
+    }
+
+    function toggleLessonComplete() {
+      isComplete = !isComplete;
+      const btn = document.getElementById('complete-btn');
+      if (isComplete) {
+        btn.classList.remove('bg-slate-800', 'text-slate-300');
+        btn.classList.add('bg-emerald-600', 'text-white');
+        btn.innerHTML = '&check; Completed!';
+      } else {
+        btn.classList.remove('bg-emerald-600', 'text-white');
+        btn.classList.add('bg-slate-800', 'text-slate-300');
+        btn.innerHTML = '&check; Mark Complete';
+      }
+    }
+
+    function seekTo(seconds) {
+      const total = 2280;
+      const pct = Math.min(100, Math.round((seconds / total) * 100));
+      document.getElementById('video-progress').style.width = pct + '%';
+      const m = Math.floor(seconds / 60);
+      const s = seconds % 60;
+      document.getElementById('time-display').innerText = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')} / 38:00`;
+    }
+
+    function handleScrub(e) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const pos = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+      document.getElementById('video-progress').style.width = (pos * 100) + '%';
+      const sec = Math.round(pos * 2280);
+      seekTo(sec);
+    }
+
+    // Quiz Questions Data
+    const quizData = [
+      {
+        prompt: "In the Raft protocol, what immediately happens when a follower's election timer expires without receiving an AppendEntries heartbeat?",
+        options: [
+          "It immediately transitions to Leader and sends heartbeats",
+          "It increments currentTerm, transitions to Candidate, votes for itself, and requests votes",
+          "It shuts down the node to prevent split-brain partition",
+          "It asks the master coordinator node for a lease extension"
+        ],
+        correct: 1
+      },
+      {
+        prompt: "According to the FLP Impossibility Theorem (1985), consensus cannot be guaranteed in:",
+        options: [
+          "Synchronous networks with arbitrary Byzantine faults",
+          "Asynchronous networks with even a single crash failure",
+          "P2P networks with greater than 33% malicious nodes",
+          "Clustered environments with NTP clock drift > 1ms"
+        ],
+        correct: 1
+      },
+      {
+        prompt: "Why does Raft randomize election timeouts (150ms – 300ms)?",
+        options: [
+          "To hash RPC headers and prevent replay attacks",
+          "To ensure one candidate times out first and wins before split-vote deadlocks happen",
+          "To reduce bandwidth usage on WAN replication",
+          "To maintain Lamport logical clock synchronization"
+        ],
+        correct: 1
+      },
+      {
+        prompt: "For a Raft leader to safely commit an entry, it must replicate it to:",
+        options: [
+          "100% of all nodes in the cluster unconditionally",
+          "A strict majority quorum of nodes from its current term",
+          "Only the primary and backup nodes",
+          "The client who originated the RPC request"
+        ],
+        correct: 1
+      }
+    ];
+
+    let currentQIndex = 0;
+    let userAnswers = {};
+
+    function renderQuestion() {
+      const q = quizData[currentQIndex];
+      document.getElementById('q-number').innerText = `Question ${currentQIndex + 1} of ${quizData.length}`;
+      document.getElementById('q-prompt').innerText = q.prompt;
+
+      const optsContainer = document.getElementById('q-options');
+      optsContainer.innerHTML = '';
+
+      q.options.forEach((opt, idx) => {
+        const isSelected = userAnswers[currentQIndex] === idx;
+        const div = document.createElement('div');
+        div.className = `p-4 rounded-xl border cursor-pointer transition-all flex items-start gap-3 ${isSelected ? 'bg-indigo-950 border-indigo-500 text-white' : 'bg-slate-950 border-slate-800 text-slate-300 hover:bg-slate-800/50'}`;
+        div.innerHTML = `
+          <div class="w-4 h-4 rounded-full border mt-0.5 flex items-center justify-center ${isSelected ? 'border-indigo-400 bg-indigo-600' : 'border-slate-700'}">
+            ${isSelected ? '<div class="w-1.5 h-1.5 rounded-full bg-white"></div>' : ''}
+          </div>
+          <span>${opt}</span>
+        `;
+        div.onclick = () => {
+          userAnswers[currentQIndex] = idx;
+          const palBtn = document.getElementById('pal-' + currentQIndex);
+          if (palBtn) palBtn.className = 'h-9 rounded-lg bg-emerald-600 text-white';
+          renderQuestion();
+        };
+        optsContainer.appendChild(div);
+      });
+
+      const nextBtn = document.getElementById('quiz-next-btn');
+      if (currentQIndex === quizData.length - 1) {
+        nextBtn.innerText = "Finish Examination";
+        nextBtn.onclick = submitQuiz;
+      } else {
+        nextBtn.innerText = "Next Question \u2192";
+        nextBtn.onclick = nextQuestion;
+      }
+    }
+
+    function jumpToQuestion(idx) {
+      currentQIndex = idx;
+      renderQuestion();
+    }
+
+    function nextQuestion() {
+      if (currentQIndex < quizData.length - 1) {
+        currentQIndex++;
+        renderQuestion();
+      }
+    }
+
+    function prevQuestion() {
+      if (currentQIndex > 0) {
+        currentQIndex--;
+        renderQuestion();
+      }
+    }
+
+    function submitQuiz() {
+      document.getElementById('quiz-canvas').classList.add('hidden');
+      document.getElementById('quiz-result-modal').classList.remove('hidden');
+    }
+
+    function submitAssignment() {
+      document.getElementById('assignment-receipt').classList.remove('hidden');
+    }
+
+    // Initialize Quiz
+    renderQuestion();
+  </script>
+</body>
+</html>

@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AetherLMS — 30-Day Engineering & Development Roadmap Report</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #3730a3;
+      --primary-light: #e0e7ff;
+      --slate-900: #0f172a;
+      --slate-800: #1e293b;
+      --slate-700: #334155;
+      --slate-600: #475569;
+      --slate-200: #e2e8f0;
+      --slate-100: #f1f5f9;
+      --slate-50: #f8fafc;
+      --emerald-600: #059669;
+      --emerald-50: #ecfdf5;
+      --amber-600: #d97706;
+      --amber-50: #fffbeb;
+      --rose-600: #e11d48;
+      --rose-50: #fff1f2;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1e293b;
+      background-color: #f8fafc;
+      line-height: 1.6;
+      font-size: 14px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-mono, code, pre {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .report-wrapper {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+      overflow: hidden;
+    }
+
+    /* Top Floating Action Bar */
+    .action-bar {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #334155;
+    }
+
+    .action-bar h1 {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-print {
+      background: #4f46e5;
+      color: #ffffff;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-print:hover {
+      background: #4338ca;
+      transform: translateY(-1px);
+    }
+
+    /* Cover / Header Section */
+    .report-header {
+      padding: 48px 48px 36px 48px;
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+      color: #ffffff;
+    }
+
+    .badge-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      background: rgba(99, 102, 241, 0.25);
+      border: 1px solid rgba(165, 180, 252, 0.4);
+      color: #c7d2fe;
+      margin-bottom: 16px;
+    }
+
+    .report-title {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .report-subtitle {
+      font-size: 16px;
+      color: #cbd5e1;
+      max-width: 720px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .meta-item .meta-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #94a3b8;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .meta-item .meta-value {
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    /* Content Area */
+    .report-body {
+      padding: 40px 48px;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.02em;
+      margin: 36px 0 16px 0;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #f1f5f9;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 24px 0 10px 0;
+    }
+
+    p {
+      margin-bottom: 14px;
+      color: #475569;
+      font-size: 13.5px;
+    }
+
+    /* Comparison & Highlight Cards */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .card {
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      background: #ffffff;
+    }
+
+    .card.primary {
+      background: #f5f7ff;
+      border-color: #c7d2fe;
+    }
+
+    .card-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .card-title.red { color: #e11d48; }
+    .card-title.amber { color: #d97706; }
+    .card-title.blue { color: #4f46e5; }
+
+    .card-list {
+      list-style: none;
+      font-size: 12.5px;
+      color: #475569;
+    }
+
+    .card-list li {
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 12.5px;
+      background: #ffffff;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+    }
+
+    th {
+      background: #f8fafc;
+      color: #475569;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 10.5px;
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #f1f5f9;
+      color: #334155;
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background-color: #f8fafc; }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 10.5px;
+      font-weight: 600;
+    }
+
+    .tag-blue { background: #e0e7ff; color: #4338ca; }
+    .tag-green { background: #dcfce7; color: #15803d; }
+    .tag-amber { background: #fef3c7; color: #b45309; }
+    .tag-purple { background: #f3e8ff; color: #7e22ce; }
+
+    /* Timeline Section */
+    .timeline-item {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 24px;
+      border-left: 2px solid #e2e8f0;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #4f46e5;
+      border: 2px solid #ffffff;
+      box-shadow: 0 0 0 2px #4f46e5;
+    }
+
+    .timeline-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .timeline-subtitle {
+      font-size: 12px;
+      font-weight: 600;
+      color: #4f46e5;
+      margin-bottom: 6px;
+    }
+
+    .timeline-body {
+      font-size: 13px;
+      color: #475569;
+    }
+
+    .timeline-body ul {
+      margin-left: 18px;
+      margin-top: 6px;
+      list-style-type: square;
+    }
+
+    .timeline-body li {
+      margin-bottom: 4px;
+    }
+
+    /* Print Overrides */
+    @media print {
+      body { background: #ffffff; font-size: 12px; }
+      .action-bar { display: none; }
+      .report-wrapper {
+        margin: 0;
+        max-width: 100%;
+        border: none;
+        box-shadow: none;
+      }
+      .report-header { padding: 32px; }
+      .report-body { padding: 24px; }
+      h2 { page-break-after: avoid; }
+      table, .card-grid { page-break-inside: avoid; }
+      .timeline-item { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="report-wrapper">
+    <!-- Top Action Bar -->
+    <div class="action-bar">
+      <h1>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        AetherLMS &bull; Engineering Architecture &amp; Delivery Report
+      </h1>
+      <button class="btn-print" onclick="window.print()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><path d="M6 14h12v8H6z"/></svg>
+        Download / Print PDF
+      </button>
+    </div>
+
+    <!-- Executive Header -->
+    <header class="report-header">
+      <div class="badge-tag">Enterprise Engineering Specification</div>
+      <div class="report-title">30-Day Engineering Development Roadmap</div>
+      <p class="report-subtitle">
+        Architecture, database schema, video streaming engine, anti-cheat assessment systems, and production launch pipeline combining Coursera usability with NPTEL academic discipline.
+      </p>
+
+      <div class="meta-grid">
+        <div class="meta-item">
+          <div class="meta-label">Author</div>
+          <div class="meta-value">Principal System Architect</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Tech Stack</div>
+          <div class="meta-value">Next.js 14, Supabase, Postgres</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Timeline</div>
+          <div class="meta-value">30 Days (4 Sprints)</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Release Version</div>
+          <div class="meta-value">v1.0 Production</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Report Body -->
+    <main class="report-body">
+
+      <!-- Executive Overview -->
+      <section>
+        <h2>1. Executive Summary &amp; Competitive Moat</h2>
+        <p>
+          Online higher education platforms today fall into two distinct silos: <strong>Coursera</strong> excels in fluid video delivery and modular navigation, yet suffers from ~12% completion rates due to the absence of rigid milestones; <strong>NPTEL</strong> excels in academic rigor, weekly assignments, and proctored examinations, but is handicapped by dated user experiences and rigid non-adaptive scoring.
+        </p>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-title red">Coursera Limitations</div>
+            <ul class="card-list">
+              <li>&times; Soft deadlines permit indefinite procrastination</li>
+              <li>&times; Lacks automated Best-of-N score-drop calculation</li>
+              <li>&times; No scheduled proctored exam slot allocation</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-title amber">NPTEL Limitations</div>
+            <ul class="card-list">
+              <li>&times; Dated video streaming interface with no seek sync</li>
+              <li>&times; No real-time searchable transcript integration</li>
+              <li>&times; Slow, manual assignment review cycles</li>
+            </ul>
+          </div>
+
+          <div class="card primary">
+            <div class="card-title blue">AetherLMS Synthesis</div>
+            <ul class="card-list">
+              <li>&check; 0.5x–2.0x HLS streaming with interactive transcript seek</li>
+              <li>&check; Hard cutoff weekly deadlines with Best 8 of 12 engine</li>
+              <li>&check; Dynamic QR cryptographic certificate verification</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 30 Day Calendar -->
+      <section>
+        <h2>2. 30-Day Master Sprint Calendar</h2>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 15%;">Sprint</th>
+              <th style="width: 30%;">Phase Focus</th>
+              <th style="width: 35%;">Key Engineering Deliverables</th>
+              <th style="width: 20%;">Security / RLS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Week 1</strong><br><span style="color:#64748b; font-size:11px;">Days 1–7</span></td>
+              <td><strong>Foundation, DB &amp; Role Security</strong></td>
+              <td>16-table PostgreSQL schema, auto-profile triggers, Next.js 14 layout shells, Supabase SSR Auth.</td>
+              <td><span class="tag tag-blue">Full 4-Role RLS</span></td>
+            </tr>
+            <tr>
+              <td><strong>Week 2</strong><br><span style="color:#64748b; font-size:11px;">Days 8–14</span></td>
+              <td><strong>Next-Gen Content Engine</strong></td>
+              <td>Custom video player, 0.5x–2x speed selector, synced transcript seek, curriculum builder studio, faceted catalog.</td>
+              <td><span class="tag tag-green">Enrolled Isolation</span></td>
+            </tr>
+            <tr>
+              <td><strong>Week 3</strong><br><span style="color:#64748b; font-size:11px;">Days 15–21</span></td>
+              <td><strong>Evaluation &amp; Best-of-N Engine</strong></td>
+              <td>Anti-cheat timed quiz engine, code upload portal with hard cutoffs, Best 8 of 12 PostgreSQL trigger, TA gradebook.</td>
+              <td><span class="tag tag-amber">Deadline Triggers</span></td>
+            </tr>
+            <tr>
+              <td><strong>Week 4</strong><br><span style="color:#64748b; font-size:11px;">Days 22–30</span></td>
+              <td><strong>Verification, QA &amp; Launch</strong></td>
+              <td>PDF certificate generator, public <code>/verify/[id]</code> with QR code, Playwright E2E test suites, Vercel deployment.</td>
+              <td><span class="tag tag-purple">Public Verification</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Detailed Day-by-Day Roadmap -->
+      <section>
+        <h2>3. Detailed Day-by-Day Engineering Plan</h2>
+
+        <!-- Week 1 -->
+        <div style="margin-top: 20px;">
+          <h3 style="color: #4f46e5; border-bottom: 1px dashed #cbd5e1; padding-bottom: 6px;">
+            Week 1 &bull; Foundation, Database Architecture &amp; Role Security (Days 1–7)
+          </h3>
+
+          <div class="timeline-item" style="margin-top: 14px;">
+            <div class="timeline-title">Days 1–2: Relational PostgreSQL Schema &amp; Row Level Security (RLS)</div>
+            <div class="timeline-body">
+              <ul>
+                <li>Deploy 16 relational tables with strict foreign keys and delete cascades across courses, modules, lessons, submissions, quizzes, certificates, and exams.</li>
+                <li>Write database-level helper functions: <code>is_admin()</code>, <code>is_instructor()</code>, and <code>is_evaluator()</code>.</li>
+                <li>Apply strict Row-Level Security policies guaranteeing students can never access draft curriculums or peer submission archives.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-title">Days 3–4: Next.js 14 App Router &amp; Global Layout System</div>
+            <div class="timeline-body">
+              <ul>
+                <li>Initialize Next.js 14 with TypeScript, Tailwind CSS, and Shadcn UI component primitives.</li>
+                <li>Configure <code>QueryClientProvider</code> with 5-minute cache deduplication and <code>react-hot-toast</code> notifications.</li>
+                <li>Construct high-performance layout shells: Student Dashboard, Instructor Studio, and Admin Command Terminal.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-title">Days 5–7: Supabase SSR Authentication &amp; Edge Middleware Guards</div>
+            <div class="timeline-body">
+              <ul>
+                <li>Implement secure cookie-based session handling using <code>@supabase/ssr</code>.</li>
+                <li>Build Email/Password and OAuth (Google &amp; GitHub) authentication workflows with Zod input validation.</li>
+                <li>Configure Next.js edge middleware (<code>middleware.ts</code>) enforcing instantaneous role-based routing.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Week 2 -->
+        <div style="margin-top: 28px;">
+          <h3 style="color: #4f46e5; border-bottom: 1px dashed #cbd5e1; padding-bottom: 6px;">
+            Week 2 &bull; Next-Gen Content Engine — Beyond Coursera (Days 8–14)
+          </h3>
+
+          <div class="timeline-item" style="margin-top: 14px;">
+            <div class="timeline-title">Days 8–10: Immersive Video Classroom &amp; Synced Transcripts</div>
+            <div class="timeline-body">
+              <ul>
+                <li>Custom video player with playback speeds (0.5x, 0.75x, 1.0x, 1.25x, 1.5x, 2.0x), scrubber, and auto-advance.</li>
+                <li>Zustand <code>usePlayerStore</code> persisting user playback rate and volume settings to local storage.</li>
+                <li>Interactive, searchable transcript viewer: clicking any sentence cue jumps the video scrubber directly to that exact second.</li>
+                <li>Auto-save playback progress down to the second in <code>lesson_progress</code>.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-title">Days 11–12: Instructor Curriculum Builder Studio</div>
+            <div class="timeline-body">
+              <ul>
+                <li>Drag-and-drop course builder supporting Weeks 1–12 with video, article, quiz, and lab lesson types.</li>
+                <li>Prerequisite locking toggle: enforce sequential completion before unlocking subsequent academic modules.</li>
+                <li>Supabase Storage integration with signed upload URLs for video MP4/HLS streams and code starter archives.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-title">Days 13–14: Faceted Course Discovery &amp; Instant Enrollment</div>
+            <div class="timeline-body">
+              <ul>
+                <li>Searchable catalog with real-time filters for Category, Difficulty, Rating, and Hours.</li>
+                <li>Public course syllabus detail page with 12-week breakdown and grading rubric disclosure.</li>
+                <li>One-click enrollment writing immediately to <code>public.enrollments</code>.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Week 3 -->
+        <div style="margin-top: 28px;">
+          <h3 style="color: #4f46e5; border-bottom: 1px dashed #cbd5e1; padding-bottom: 6px;">
+            Week 3 &bull; Rigorous Evaluation &amp; Assignment Engine — NPTEL Evolution (Days 15–21)
+          </h3>
+
+          <div class="timeline-item" style="margin-top: 14px;">
+            <div class="timeline-title">Days 15–17: Anti-Cheat Timed Quiz &amp; Rigid Assignment Module</div>
+            <div class="timeline-body">
+              <ul>
+                <li>Full-screen timed quiz engine with countdown clock and visual Question Jump Palette (Answered, Unanswered, Flagged).</li>
+                <li>Automated score calculation for Single &amp; Multiple Choice questions with strict auto-submit on countdown expiry.</li>
+                <li>Assignment submission portal with live hard-cutoff countdown clocks (<code>DD:HH:MM:SS</code>).</li>
+                <li>Multi-mode submission: ZIP/PDF upload, embedded Go/Rust/C code editor, and SHA-256 submission receipt generation.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-title">Days 18–19: The "Best of N" Flexible Score Engine</div>
+            <div class="timeline-body">
+              <ul>
+                <li>Implement PostgreSQL <code>calculate_best_of_n_score</code> trigger function.</li>
+                <li>Automatically drops the lowest 4 scores in a 12-week course and computes the arithmetic mean of the top 8 weeks.</li>
+                <li>Interactive student dashboard simulator highlighting counted vs. dropped scores and certificate eligibility.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-title">Days 20–21: TA Gradebook Queue &amp; Real-Time Discussion Boards</div>
+            <div class="timeline-body">
+              <ul>
+                <li>Evaluator grading queue with automated CI test-pass verification and rubric point sliders.</li>
+                <li>Module-scoped discussion forums powered by Supabase Realtime channels with "Instructor Answered" verification badges.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Week 4 -->
+        <div style="margin-top: 28px;">
+          <h3 style="color: #4f46e5; border-bottom: 1px dashed #cbd5e1; padding-bottom: 6px;">
+            Week 4 &bull; Verification, Gamification, QA &amp; Production Launch (Days 22–30)
+          </h3>
+
+          <div class="timeline-item" style="margin-top: 14px;">
+            <div class="timeline-title">Days 22–23: Dynamic PDF Certificates &amp; Public QR Verification</div>
+            <div class="timeline-body">
+              <ul>
+                <li>Automated certificate issuance trigger when composite grade satisfies the passing threshold (&ge; 75%).</li>
+                <li>High-resolution diploma PDF generation with student honors, instructor signatures, and institutional crest.</li>
+                <li>Public verification route (<code>/verify/[certificateId]</code>) with cryptographic hash lookup and QR validation.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-title">Days 24–25: Performance Hardening &amp; Mobile Responsive Polish</div>
+            <div class="timeline-body">
+              <ul>
+                <li>B-Tree database indexing on high-frequency foreign keys (<code>user_id</code>, <code>course_id</code>, <code>assignment_id</code>).</li>
+                <li>Mobile viewport optimization with touch-friendly player gestures and responsive bottom navigation.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-title">Days 26–27: Autonomous Playwright End-to-End Testing</div>
+            <div class="timeline-body">
+              <ul>
+                <li>Automate the complete Student journey: Register &rarr; Catalog &rarr; Video &rarr; Timed Quiz &rarr; Submit Lab &rarr; Receive Certificate.</li>
+                <li>Security penetration tests verifying zero RLS data leaks between unauthorized roles.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-title">Days 28–30: Production Deployment &amp; Go-Live</div>
+            <div class="timeline-body">
+              <ul>
+                <li>Deploy to Vercel edge network with SSL, custom domain, and Supavisor connection pooling.</li>
+                <li>Configure Sentry error tracking, automated daily database backups, and synthetic health monitoring.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Security Matrix -->
+      <section>
+        <h2>4. Zero-Trust Role-Based Access Control (RBAC) Matrix</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Operation / Endpoint</th>
+              <th>Student</th>
+              <th>Instructor</th>
+              <th>Evaluator / TA</th>
+              <th>Admin</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>View Course Catalog &amp; Syllabus</strong></td>
+              <td>&check; Read</td>
+              <td>&check; Read</td>
+              <td>&check; Read</td>
+              <td>&check; Read</td>
+            </tr>
+            <tr>
+              <td><strong>Watch Lesson &amp; Track Position</strong></td>
+              <td>&check; Enrolled</td>
+              <td>&check; Own Course</td>
+              <td>&check; Read</td>
+              <td>&check; Full</td>
+            </tr>
+            <tr>
+              <td><strong>Attempt Timed Quizzes</strong></td>
+              <td>&check; Submit</td>
+              <td>&minus; Preview Only</td>
+              <td>&minus; Preview Only</td>
+              <td>&check; Full</td>
+            </tr>
+            <tr>
+              <td><strong>Submit Weekly Labs (Hard Cutoff)</strong></td>
+              <td>&check; Before Cutoff</td>
+              <td>&minus; Preview Only</td>
+              <td>&minus; Preview Only</td>
+              <td>&check; Full</td>
+            </tr>
+            <tr>
+              <td><strong>Grade Submissions &amp; Rubrics</strong></td>
+              <td>&times; Prohibited</td>
+              <td>&check; Own Course</td>
+              <td>&check; Assigned</td>
+              <td>&check; Full</td>
+            </tr>
+            <tr>
+              <td><strong>Issue &amp; Verify Certificates</strong></td>
+              <td>&check; Verify Public</td>
+              <td>&check; Auto-Trigger</td>
+              <td>&times; Prohibited</td>
+              <td>&check; Full Override</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Signoff -->
+      <section style="margin-top: 40px; padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background: #f8fafc;">
+        <div style="font-size: 13px; font-weight: 700; color: #0f172a; margin-bottom: 6px;">Sign-Off &amp; Architectural Approval</div>
+        <p style="font-size: 12px; color: #64748b; margin-bottom: 16px;">
+          This 30-day roadmap represents the approved engineering specification for the AetherLMS platform. Implementation begins immediately following review.
+        </p>
+        <div style="display: flex; justify-content: space-between; font-size: 11px; font-family: 'JetBrains Mono', monospace; color: #475569;">
+          <span>STATUS: APPROVED FOR EXECUTION</span>
+          <span>DATE: NOVEMBER 9, 2026</span>
+          <span>SYSTEM ARCHITECT &bull; LEAD ENG</span>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [ 7 0 R 9 0 R ] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+6 0 obj
+<< /Length 5817 >>
+stream
+0.060 0.090 0.160 rg 40.0 680.0 532.0 75.0 re f
+0.450 0.650 1.000 rg BT /F2 13 Tf 60.0 728.0 Td (AETHER LMS) Tj ET
+1.000 1.000 1.000 rg BT /F2 16 Tf 60.0 706.0 Td (30-DAY ENGINEERING DEVELOPMENT ROADMAP) Tj ET
+0.750 0.800 0.900 rg BT /F1 9 Tf 60.0 692.0 Td (Coursera Usability x NPTEL Academic Rigor -- Executive Architecture Report) Tj ET
+0.960 0.970 0.990 rg 0.850 0.880 0.920 RG 1 w 40.0 615.0 532.0 52.0 re B
+0.450 0.500 0.600 rg BT /F2 8 Tf 55.0 650.0 Td (AUTHOR) Tj ET
+0.100 0.100 0.150 rg BT /F2 9.5 Tf 55.0 636.0 Td (Principal System Architect) Tj ET
+0.450 0.500 0.600 rg BT /F2 8 Tf 195.0 650.0 Td (TIMELINE) Tj ET
+0.100 0.100 0.150 rg BT /F2 9.5 Tf 195.0 636.0 Td (30 Days \(4 Sprints\)) Tj ET
+0.450 0.500 0.600 rg BT /F2 8 Tf 325.0 650.0 Td (TECH STACK) Tj ET
+0.100 0.100 0.150 rg BT /F2 9.5 Tf 325.0 636.0 Td (Next.js 14, Supabase, Postgres) Tj ET
+0.450 0.500 0.600 rg BT /F2 8 Tf 480.0 650.0 Td (STATUS) Tj ET
+0.050 0.550 0.250 rg BT /F2 9.5 Tf 480.0 636.0 Td (READY FOR DEV) Tj ET
+0.100 0.150 0.300 rg BT /F2 11.5 Tf 40.0 584.0 Td (1. EXECUTIVE SUMMARY & PLATFORM OBJECTIVES) Tj ET
+0.800 0.850 0.900 RG 1.5 w 40.0 578.0 m 572.0 578.0 l S
+0.100 0.100 0.100 rg BT /F1 9 Tf 40.0 560.0 Td (AetherLMS bridges the critical divide in modern higher education by unifying Coursera's seamless) Tj ET
+0.100 0.100 0.100 rg BT /F1 9 Tf 40.0 547.0 Td (video streaming and modular navigation with NPTEL's rigid deadlines, automated assignment scoring,) Tj ET
+0.100 0.100 0.100 rg BT /F1 9 Tf 40.0 534.0 Td (best-of-N algorithms \(e.g. top 8 of 12 weeks\), proctored exams, and accredited QR verification.) Tj ET
+0.990 0.960 0.960 rg 0.900 0.750 0.750 RG 1 w 40.0 440.0 170.0 75.0 re B
+0.800 0.100 0.200 rg BT /F2 8.5 Tf 50.0 499.0 Td (COURSERA LIMITS) Tj ET
+0.100 0.100 0.100 rg BT /F1 8 Tf 50.0 485.0 Td (- Soft deadlines \(12% completion\)) Tj ET
+0.100 0.100 0.100 rg BT /F1 8 Tf 50.0 472.0 Td (- No multi-week drop grading) Tj ET
+0.100 0.100 0.100 rg BT /F1 8 Tf 50.0 459.0 Td (- No proctored exam scheduling) Tj ET
+1.000 0.980 0.930 rg 0.900 0.800 0.600 RG 1 w 220.0 440.0 170.0 75.0 re B
+0.750 0.450 0.050 rg BT /F2 8.5 Tf 230.0 499.0 Td (NPTEL LIMITS) Tj ET
+0.100 0.100 0.100 rg BT /F1 8 Tf 230.0 485.0 Td (- Legacy, clunky video player) Tj ET
+0.100 0.100 0.100 rg BT /F1 8 Tf 230.0 472.0 Td (- No synced transcript seek) Tj ET
+0.100 0.100 0.100 rg BT /F1 8 Tf 230.0 459.0 Td (- Slow, manual TA grading loop) Tj ET
+0.940 0.960 1.000 rg 0.700 0.800 0.950 RG 1 w 400.0 440.0 172.0 75.0 re B
+0.200 0.300 0.800 rg BT /F2 8.5 Tf 410.0 499.0 Td (AETHERLMS ADVANTAGE) Tj ET
+0.100 0.500 0.200 rg BT /F2 8 Tf 410.0 485.0 Td (+ 0.5x-2x player with seek sync) Tj ET
+0.100 0.500 0.200 rg BT /F2 8 Tf 410.0 472.0 Td (+ Best-8-of-12 automatic engine) Tj ET
+0.100 0.500 0.200 rg BT /F2 8 Tf 410.0 459.0 Td (+ Tamper-proof QR certificates) Tj ET
+0.100 0.150 0.300 rg BT /F2 11.5 Tf 40.0 412.0 Td (2. 30-DAY MASTER SPRINT CALENDAR) Tj ET
+0.800 0.850 0.900 RG 1.5 w 40.0 406.0 m 572.0 406.0 l S
+0.920 0.940 0.970 rg 40.0 371.0 532.0 19.0 re f
+0.300 0.350 0.450 rg BT /F2 8 Tf 48.0 375.0 Td (PHASE) Tj ET
+0.300 0.350 0.450 rg BT /F2 8 Tf 115.0 375.0 Td (FOCUS) Tj ET
+0.300 0.350 0.450 rg BT /F2 8 Tf 250.0 375.0 Td (KEY DELIVERABLES) Tj ET
+0.300 0.350 0.450 rg BT /F2 8 Tf 475.0 375.0 Td (SECURITY & RLS) Tj ET
+1.000 1.000 1.000 rg 0.880 0.900 0.930 RG 1 w 40.0 348.0 532.0 23.0 re B
+0.100 0.100 0.100 rg BT /F2 8 Tf 48.0 358.0 Td (Week 1 \(D1-7\)) Tj ET
+0.200 0.300 0.800 rg BT /F2 8 Tf 115.0 358.0 Td (DB, Auth & Role Security) Tj ET
+0.100 0.100 0.100 rg BT /F1 7.8 Tf 250.0 358.0 Td (16-table Postgres schema, SSR Auth, Edge RBAC middleware) Tj ET
+0.100 0.500 0.200 rg BT /F2 8 Tf 475.0 358.0 Td (4 Roles Protected) Tj ET
+0.980 0.990 1.000 rg 0.880 0.900 0.930 RG 1 w 40.0 325.0 532.0 23.0 re B
+0.100 0.100 0.100 rg BT /F2 8 Tf 48.0 335.0 Td (Week 2 \(D8-14\)) Tj ET
+0.200 0.300 0.800 rg BT /F2 8 Tf 115.0 335.0 Td (Next-Gen Content Engine) Tj ET
+0.100 0.100 0.100 rg BT /F1 7.8 Tf 250.0 335.0 Td (HLS Player, Synced Transcript Seek, Drag-and-drop Studio) Tj ET
+0.100 0.500 0.200 rg BT /F2 8 Tf 475.0 335.0 Td (Enrolled Isolation) Tj ET
+1.000 1.000 1.000 rg 0.880 0.900 0.930 RG 1 w 40.0 302.0 532.0 23.0 re B
+0.100 0.100 0.100 rg BT /F2 8 Tf 48.0 312.0 Td (Week 3 \(D15-21\)) Tj ET
+0.200 0.300 0.800 rg BT /F2 8 Tf 115.0 312.0 Td (Evaluation & Best-of-N) Tj ET
+0.100 0.100 0.100 rg BT /F1 7.8 Tf 250.0 312.0 Td (Anti-cheat Quiz, Hard cutoff Labs, Best-of-8 trigger, TA Queue) Tj ET
+0.800 0.400 0.100 rg BT /F2 8 Tf 475.0 312.0 Td (Hard Cutoff Limits) Tj ET
+0.980 0.990 1.000 rg 0.880 0.900 0.930 RG 1 w 40.0 279.0 532.0 23.0 re B
+0.100 0.100 0.100 rg BT /F2 8 Tf 48.0 289.0 Td (Week 4 \(D22-30\)) Tj ET
+0.200 0.300 0.800 rg BT /F2 8 Tf 115.0 289.0 Td (Verification, QA & Launch) Tj ET
+0.100 0.100 0.100 rg BT /F1 7.8 Tf 250.0 289.0 Td (PDF Certificates with QR, Playwright E2E, Vercel Production) Tj ET
+0.500 0.200 0.800 rg BT /F2 8 Tf 475.0 289.0 Td (Public Validation) Tj ET
+0.100 0.150 0.300 rg BT /F2 10 Tf 40.0 255.0 Td (CORE ARCHITECTURAL INNOVATIONS) Tj ET
+0.850 0.880 0.930 RG 1 w 40.0 251.0 m 572.0 251.0 l S
+0.100 0.100 0.100 rg BT /F1 8.5 Tf 45.0 239.0 Td (* Dynamic Transcript-to-Video Seek: Video scrubber binds bi-directionally to sentence-level cues.) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.5 Tf 45.0 226.0 Td (* Deterministic Drop-Grading Engine: PostgreSQL triggers automatically reconcile grades upon TA review.) Tj ET
+0.100 0.100 0.100 rg BT /F1 8.5 Tf 45.0 213.0 Td (* Tamper-Proof Credential Hash: Every issued certificate embeds SHA-256 validation for employers.) Tj ET
+0.850 0.850 0.850 RG 1 w 40.0 48.0 m 572.0 48.0 l S
+0.500 0.500 0.500 rg BT /F1 8 Tf 40.0 34.0 Td (AetherLMS Engineering Specification -- Page 1 of 2) Tj ET
+0.500 0.500 0.500 rg BT /F1 8 Tf 460.0 34.0 Td (Confidential & Proprietary) Tj ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 6 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> >>
+endobj
+8 0 obj
+<< /Length 5390 >>
+stream
+0.060 0.090 0.160 rg 40.0 722.0 532.0 34.0 re f
+1.000 1.000 1.000 rg BT /F2 11 Tf 55.0 735.0 Td (3. DETAILED DAY-BY-DAY EXECUTION MATRIX) Tj ET
+0.250 0.300 0.800 rg BT /F2 9.5 Tf 40.0 698.0 Td (WEEK 1: FOUNDATION, DATABASE ARCHITECTURE & ROLE SECURITY \(DAYS 1-7\)) Tj ET
+0.850 0.880 0.950 RG 1 w 40.0 694.0 m 572.0 694.0 l S
+0.100 0.100 0.100 rg BT /F2 8.5 Tf 50.0 682.0 Td (Days 1-2: 16-Table PostgreSQL Schema & Row Level Security \(RLS\)) Tj ET
+0.250 0.250 0.250 rg BT /F1 8 Tf 50.0 670.0 Td (  - Deploy profiles, courses, modules, lessons, submissions, quizzes, certificates, and exam tables.) Tj ET
+0.250 0.250 0.250 rg BT /F1 8 Tf 50.0 659.0 Td (  - Strict RLS isolation: students access enrolled material only; instructors manage own courses.) Tj ET
+0.100 0.100 0.100 rg BT /F2 8.5 Tf 50.0 645.0 Td (Days 3-4: Next.js 14 App Router & Global Layout Architecture) Tj ET
+0.250 0.250 0.250 rg BT /F1 8 Tf 50.0 633.0 Td (  - Tailwind custom palette, Shadcn UI primitives, TanStack Query provider, and React Hot Toast.) Tj ET
+0.250 0.250 0.250 rg BT /F1 8 Tf 50.0 622.0 Td (  - Responsive layout shells for Student Dashboard, Instructor Studio, and Admin Control Panel.) Tj ET
+0.100 0.100 0.100 rg BT /F2 8.5 Tf 50.0 608.0 Td (Days 5-7: Authentication, Session Management & RBAC Middleware) Tj ET
+0.250 0.250 0.250 rg BT /F1 8 Tf 50.0 596.0 Td (  - Email/Password and OAuth \(Google/GitHub\) PKCE flows via @supabase/ssr.) Tj ET
+0.250 0.250 0.250 rg BT /F1 8 Tf 50.0 585.0 Td (  - Edge middleware route guards for /dashboard, /instructor, /admin, and /course/learn.) Tj ET
+0.250 0.300 0.800 rg BT /F2 9.5 Tf 40.0 563.0 Td (WEEK 2: NEXT-GEN CONTENT ENGINE -- BEYOND COURSERA \(DAYS 8-14\)) Tj ET
+0.850 0.880 0.950 RG 1 w 40.0 559.0 m 572.0 559.0 l S
+0.100 0.100 0.100 rg BT /F2 8.5 Tf 50.0 547.0 Td (Days 8-10: Interactive Video Player & Synced Transcript Seek) Tj ET
+0.250 0.250 0.250 rg BT /F1 8 Tf 50.0 535.0 Td (  - HLS streaming player with 0.5x to 2x speed toggles, auto-resume position, and auto-advance.) Tj ET
+0.250 0.250 0.250 rg BT /F1 8 Tf 50.0 524.0 Td (  - Side-by-side interactive transcript with click-to-seek jumping directly to the video second.) Tj ET
+0.100 0.100 0.100 rg BT /F2 8.5 Tf 50.0 510.0 Td (Days 11-12: Curriculum Builder Studio & Supabase Storage) Tj ET
+0.250 0.250 0.250 rg BT /F1 8 Tf 50.0 498.0 Td (  - Drag-and-drop course builder across Modules, Weeks, and Lessons with prerequisite locks.) Tj ET
+0.100 0.100 0.100 rg BT /F2 8.5 Tf 50.0 484.0 Td (Days 13-14: Course Discovery Catalog & One-Click Enrollment) Tj ET
+0.250 0.250 0.250 rg BT /F1 8 Tf 50.0 472.0 Td (  - Faceted search \(Category, Difficulty, Rating\) and 12-week syllabus overview accordion.) Tj ET
+0.250 0.300 0.800 rg BT /F2 9.5 Tf 40.0 450.0 Td (WEEK 3: RIGOROUS EVALUATION & ASSIGNMENT ENGINE -- NPTEL EVOLUTION \(DAYS 15-21\)) Tj ET
+0.850 0.880 0.950 RG 1 w 40.0 446.0 m 572.0 446.0 l S
+0.100 0.100 0.100 rg BT /F2 8.5 Tf 50.0 434.0 Td (Days 15-17: Anti-Cheat Timed Quiz & Rigid Deadline Lab Submissions) Tj ET
+0.250 0.250 0.250 rg BT /F1 8 Tf 50.0 422.0 Td (  - Full-screen countdown quiz with Question Palette \(Answered/Flagged\) and auto-submit on timeout.) Tj ET
+0.250 0.250 0.250 rg BT /F1 8 Tf 50.0 411.0 Td (  - Rigid deadline countdown clocks with hard cutoffs, inline Go/C code editor, and SHA-256 receipts.) Tj ET
+0.100 0.100 0.100 rg BT /F2 8.5 Tf 50.0 397.0 Td (Days 18-19: Best-of-N Flexible Score Engine \(PostgreSQL Trigger\)) Tj ET
+0.250 0.250 0.250 rg BT /F1 8 Tf 50.0 385.0 Td (  - Automated trigger calculate_best_of_n_score\(\) drops lowest 4 weeks, averaging top 8 of 12.) Tj ET
+0.100 0.100 0.100 rg BT /F2 8.5 Tf 50.0 371.0 Td (Days 20-21: TA Gradebook Queue & Real-Time Q&A Forum) Tj ET
+0.250 0.250 0.250 rg BT /F1 8 Tf 50.0 359.0 Td (  - Evaluator queue with CI test results, rubric sliders, and Realtime verified instructor badges.) Tj ET
+0.250 0.300 0.800 rg BT /F2 9.5 Tf 40.0 337.0 Td (WEEK 4: VERIFICATION, PERFORMANCE, TESTING & LAUNCH \(DAYS 22-30\)) Tj ET
+0.850 0.880 0.950 RG 1 w 40.0 333.0 m 572.0 333.0 l S
+0.100 0.100 0.100 rg BT /F2 8.5 Tf 50.0 321.0 Td (Days 22-23: Dynamic PDF Certificates & Public QR Verification) Tj ET
+0.250 0.250 0.250 rg BT /F1 8 Tf 50.0 309.0 Td (  - Automated PDF certificate generation \(@react-pdf/renderer\) for scores >= 75%.) Tj ET
+0.250 0.250 0.250 rg BT /F1 8 Tf 50.0 298.0 Td (  - Public route /verify/[id] validating recipient, grade breakdown, and security hash via QR.) Tj ET
+0.100 0.100 0.100 rg BT /F2 8.5 Tf 50.0 284.0 Td (Days 24-25: Query Performance Optimization & Mobile Viewport Audit) Tj ET
+0.250 0.250 0.250 rg BT /F1 8 Tf 50.0 272.0 Td (  - B-tree indexing on foreign keys and touch-friendly mobile classroom interface.) Tj ET
+0.100 0.100 0.100 rg BT /F2 8.5 Tf 50.0 258.0 Td (Days 26-30: Autonomous E2E Tests, Vercel Production & Go-Live) Tj ET
+0.250 0.250 0.250 rg BT /F1 8 Tf 50.0 246.0 Td (  - Playwright E2E test suites covering Student, Instructor, and Admin user journeys.) Tj ET
+0.250 0.250 0.250 rg BT /F1 8 Tf 50.0 235.0 Td (  - Production deployment on Vercel with custom domain, Supavisor pooling, and Sentry monitoring.) Tj ET
+0.850 0.850 0.850 RG 1 w 40.0 48.0 m 572.0 48.0 l S
+0.500 0.500 0.500 rg BT /F1 8 Tf 40.0 34.0 Td (AetherLMS Engineering Specification -- Page 2 of 2) Tj ET
+0.500 0.500 0.500 rg BT /F1 8 Tf 380.0 34.0 Td (Approved for Execution &bull; November 10, 2026) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 8 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> >>
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000129 00000 n 
+0000000199 00000 n 
+0000000274 00000 n 
+0000000342 00000 n 
+0000006211 00000 n 
+0000006357 00000 n 
+0000011799 00000 n 
+trailer
+<< /Size 10 /Root 1 0 R >>
+startxref
+11945
+%%EOF
