@@ -30,12 +30,7 @@ export default async function DashboardLayout({
     }
   }
 
-  // If in production without user, redirect to login
-  if (!user && process.env.NODE_ENV === 'production') {
-    redirect('/login');
-  }
-
-  // Demo user defaults for instant zero-friction local exploration
+  // Demo user defaults for instant zero-friction exploration
   const userRole = profile?.role || 'student';
   const userName = profile?.full_name || user?.email?.split('@')[0] || 'Alex Mercer';
   const userEmail = user?.email || 'alex.mercer@cs.mit.edu';
