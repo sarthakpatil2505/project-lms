@@ -88,21 +88,42 @@ func (rf *Raft) RequestVote(args *RequestVoteArgs, reply *RequestVoteReply) {
   };
 
   const handleSubmit = async () => {
+    if (!selectedFile && !codeContent && !textSummary) {
+      toast.error('Please add a file, code, or text before submitting.');
+      return;
+    }
     setIsSubmitting(true);
     try {
-      // Simulate cryptographic verification and Supabase submission storage
-      await new Promise((r) => setTimeout(r, 1200));
+      const formData = new FormData();
+      formData.append('assignmentId', assignmentId);
+      if (selectedFile) {
+        formData.append('file', selectedFile);
+      }
+      if (codeContent && submissionTab === 'code') {
+        formData.append('codeContent', codeContent);
+      }
+      if (textSummary && submissionTab === 'text') {
+        formData.append('submissionText', textSummary);
+      }
 
-      const fakeHash = '0x' + Array.from({ length: 40 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
-      setSubmittedReceipt({
-        submittedAt: new Date().toISOString(),
-        hash: fakeHash,
-        fileName: selectedFile ? selectedFile.name : 'raft_consensus_submission.go',
+      const res = await fetch('/api/submissions/upload', {
+        method: 'POST',
+        body: formData,
       });
+      const result = await res.json();
 
-      toast.success('Assignment submitted on time! Cryptographic receipt generated.');
-    } catch {
-      toast.error('Submission failed. Please check network connectivity.');
+      if (!res.ok) {
+        throw new Error(result.error || 'Submission failed');
+      }
+
+      setSubmittedReceipt({
+        submittedAt: result.submittedAt,
+        hash: result.fileHash ?? '—',
+        fileName: selectedFile ? selectedFile.name : 'code_submission.txt',
+      });
+      toast.success('Assignment submitted! Cryptographic receipt generated.');
+    } catch (err: any) {
+      toast.error(err.message ?? 'Submission failed. Please try again.');
     } finally {
       setIsSubmitting(false);
     }

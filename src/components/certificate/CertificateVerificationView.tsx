@@ -12,25 +12,39 @@ import {
 } from 'lucide-react';
 import toast from 'react-hot-toast';
 
-interface VerificationProps {
-  certificateId: string;
+interface Certificate {
+  id: string;
+  certificate_number: string;
+  status: string;
+  issued_at: string;
+  final_score: number;
+  verification_hash: string;
+  profiles: { full_name: string; email: string };
+  courses: {
+    title: string;
+    passing_grade_percent: number;
+    profiles: { full_name: string };
+  };
 }
 
-export function CertificateVerificationView({ certificateId }: VerificationProps) {
-  // Demo verified credential data
+interface VerificationProps {
+  certificate: Certificate;
+}
+
+export function CertificateVerificationView({ certificate }: VerificationProps) {
   const certData = {
-    certificateNumber: certificateId,
-    studentName: 'Alex Mercer',
-    courseTitle: 'Advanced Distributed Systems & Consensus',
-    institution: 'MIT CSAIL &times; Aether Academic Board',
-    issueDate: 'November 2, 2026',
-    overallScore: 91.4,
-    bestOfNScore: 'Top 8 of 12 Assignments (Avg: 93.2%)',
-    proctoredExamScore: '90.5%',
-    passingThreshold: '75.0%',
-    status: 'VALID & ISSUED',
-    securityHash: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855',
-    instructor: 'Dr. Alistair Vance, Chair of Distributed Systems',
+    certificateNumber: certificate.certificate_number,
+    studentName: certificate.profiles?.full_name ?? '—',
+    courseTitle: certificate.courses?.title ?? '—',
+    institution: 'SkillBank LMS Academic Board',
+    issueDate: certificate.issued_at ? new Date(certificate.issued_at).toLocaleDateString('en-IN', { year: 'numeric', month: 'long', day: 'numeric' }) : '—',
+    overallScore: certificate.final_score ?? 0,
+    bestOfNScore: `Final Score: ${certificate.final_score?.toFixed(1) ?? '—'}%`,
+    proctoredExamScore: '—',
+    passingThreshold: `${certificate.courses?.passing_grade_percent ?? 75}%`,
+    status: certificate.status === 'issued' ? 'VALID & ISSUED' : 'REVOKED',
+    securityHash: certificate.verification_hash ?? '—',
+    instructor: certificate.courses?.profiles?.full_name ?? '—',
   };
 
   const handleDownloadPdf = () => {
@@ -96,7 +110,7 @@ export function CertificateVerificationView({ certificateId }: VerificationProps
             <GraduationCap className="w-6 h-6" />
           </div>
           <span className="text-2xl font-black tracking-tight text-white font-heading">
-            Aether<span className="text-brand-400">LMS</span>
+            Skill<span className="text-brand-400">Bank</span>
           </span>
         </div>
 
@@ -112,7 +126,7 @@ export function CertificateVerificationView({ certificateId }: VerificationProps
             {certData.studentName}
           </div>
           <p className="text-xs text-slate-400 max-w-lg mx-auto leading-relaxed">
-            for successfully passing the 12-week graduate program with honors:
+            for successfully completing the graduate program with honors:
           </p>
           <div className="text-lg sm:text-xl font-bold text-brand-300 mt-2">
             {certData.courseTitle}
@@ -128,16 +142,16 @@ export function CertificateVerificationView({ certificateId }: VerificationProps
             </div>
           </div>
           <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
-            <span className="text-[10px] font-mono text-slate-400 uppercase">Best of 8 Labs</span>
-            <div className="text-lg font-mono font-bold text-white mt-0.5">93.2%</div>
+            <span className="text-[10px] font-mono text-slate-400 uppercase">Best of N</span>
+            <div className="text-lg font-mono font-bold text-white mt-0.5">{certData.bestOfNScore}</div>
           </div>
           <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
             <span className="text-[10px] font-mono text-slate-400 uppercase">Proctored Exam</span>
-            <div className="text-lg font-mono font-bold text-sky-400 mt-0.5">90.5%</div>
+            <div className="text-lg font-mono font-bold text-sky-400 mt-0.5">{certData.proctoredExamScore}</div>
           </div>
           <div className="p-3 rounded-xl bg-slate-950/80 border border-slate-800">
             <span className="text-[10px] font-mono text-slate-400 uppercase">Pass Threshold</span>
-            <div className="text-lg font-mono font-bold text-slate-300 mt-0.5">&gt;= 75%</div>
+            <div className="text-lg font-mono font-bold text-slate-300 mt-0.5">&gt;= {certData.passingThreshold}</div>
           </div>
         </div>
 
