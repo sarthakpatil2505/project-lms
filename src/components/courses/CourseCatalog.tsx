@@ -140,12 +140,36 @@ const ALL_COURSES: CourseItem[] = [
 const CATEGORIES = ['All', 'Computer Science', 'Artificial Intelligence', 'Cybersecurity', 'Software Engineering'];
 const DIFFICULTIES = ['All Levels', 'Beginner', 'Intermediate', 'Advanced'];
 
-export function CourseCatalog() {
+interface CourseCatalogProps {
+  courses?: any[];
+}
+
+export function CourseCatalog({ courses }: CourseCatalogProps = {}) {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedDifficulty, setSelectedDifficulty] = useState('All Levels');
 
-  const filteredCourses = ALL_COURSES.filter((course) => {
+  const baseCourses = (courses && courses.length > 0)
+    ? courses.map((c: any) => ({
+        id: c.id,
+        slug: c.slug,
+        title: c.title,
+        headline: c.headline || c.description || '',
+        instructor: c.profiles?.full_name || 'Staff Faculty',
+        institution: 'Aether Academic Board',
+        category: c.tags?.[0] || 'Computer Science',
+        difficulty: (c.difficulty === 'beginner' ? 'Beginner' : c.difficulty === 'intermediate' ? 'Intermediate' : 'Advanced') as 'Beginner' | 'Intermediate' | 'Advanced',
+        weeks: c.total_assignment_weeks || 12,
+        hours: c.estimated_hours || 40,
+        passingScore: Number(c.passing_grade_percent) || 75,
+        rating: 4.9,
+        enrolledStudents: 1200,
+        thumbnail: c.thumbnail_url || 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&auto=format&fit=crop&q=60',
+        tags: c.tags || ['Systems', 'Computer Science'],
+      }))
+    : ALL_COURSES;
+
+  const filteredCourses = baseCourses.filter((course) => {
     const matchesQuery =
       course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       course.headline.toLowerCase().includes(searchQuery.toLowerCase()) ||
